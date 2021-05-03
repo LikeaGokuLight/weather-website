@@ -5,6 +5,7 @@ fetch('http://puzzle.mead.io/puzzle').then( (response) => {
     } )
 } )
 */
+console.log('lesson git ')
 
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
