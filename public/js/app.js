@@ -5,7 +5,6 @@ fetch('http://puzzle.mead.io/puzzle').then( (response) => {
     } )
 } )
 */
-console.log('lesson git ')
 
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
@@ -22,7 +21,6 @@ weatherForm.addEventListener('submit', (e) => {
             if (data.error) {
                 messageOne.textContent = 'Try again!'
                 messageTwo.textContent = data.error
-                console.log(data.error)
             } else {
                 const forecast = data.forecast
                 const country = forecast.country
@@ -32,17 +30,35 @@ weatherForm.addEventListener('submit', (e) => {
                 const name = forecast.name
                 const region = forecast.region
                 const temperature = forecast.temperature
-                const weather_cloud = forecast.weather_cloud
+                const wind_speed = forecast.wind_speed
+                const wind_degree = forecast.wind_degree
+                const wind_direction = forecast.wind_direction
+                const humidity = forecast.humidity
+                const feelslike = forecast.feelslike
+                const is_day = forecast.is_day
+
+
+
+
                 const today = `
                     The temperature in ${name}
                     is ${temperature} the country is ${country}
                     is situated latitude ${latitude} 
                     longitude is ${longitude}
                     the current time is ${local_time} 
-                    in the region ${region} is ${weather_cloud}
+                    in the region ${region}
+                    the wind speed is ${wind_speed} and
+                    wind degree ${wind_degree}
+                    wind direction is ${wind_direction}
+                    humidity is ${humidity}
+                    the temperature outside is feels like ${feelslike}
+                    now is ${is_day}
                     `
+
+
                 messageOne.textContent = data.place_name
                 messageTwo.textContent = today
+                console.log(forecast.is_day)
             }
         })
     })

@@ -9,14 +9,22 @@ const forecast = (latitude, longitude, callback ) => {
             callback('Please specify a valid location')
         } else {
             callback(undefined, {
+                // LOCATION
                 name: body.location.name,
                 country: body.location.country,
                 region: body.location.region,
                 latitude: body.location.lat,
                 longitude: body.location.lon,
                 local_time: body.location.localtime,
+                // CURRENT
                 temperature: body.current.temperature,
-                weather_cloud: body.current.weather_descriptions[0]
+                weather_cloud: body.current.weather_descriptions[0],
+                wind_speed: body.current.wind_speed,
+                wind_degree: body.current.wind_degree,
+                wind_direction: body.current.wind_dir,
+                humidity: body.current.humidity,
+                feelslike: body.current.feelslike,
+                is_day: body.current.is_day
             })
         }
     })
